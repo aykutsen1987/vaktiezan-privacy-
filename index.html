@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gizlilik Politikası – VaktiEzan</title>
+  <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --green:   #1a6b4a;
+      --green-light: #2d9668;
+      --gold:    #c9a84c;
+      --cream:   #faf7f2;
+      --ink:     #1c1c1e;
+      --muted:   #6b7280;
+      --border:  #e8e0d0;
+      --card:    #ffffff;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background: var(--cream);
+      color: var(--ink);
+      line-height: 1.75;
+      min-height: 100vh;
+    }
+
+    /* ── Geometric background ── */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 60% 40% at 90% 10%, rgba(26,107,74,.07) 0%, transparent 70%),
+        radial-gradient(ellipse 50% 50% at 10% 90%, rgba(201,168,76,.06) 0%, transparent 70%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .wrap {
+      position: relative;
+      z-index: 1;
+      max-width: 740px;
+      margin: 0 auto;
+      padding: 60px 24px 80px;
+    }
+
+    /* ── Header ── */
+    header {
+      text-align: center;
+      margin-bottom: 56px;
+    }
+
+    .logo-mark {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 64px; height: 64px;
+      border-radius: 18px;
+      background: linear-gradient(135deg, var(--green) 0%, var(--green-light) 100%);
+      margin-bottom: 20px;
+      box-shadow: 0 8px 24px rgba(26,107,74,.25);
+    }
+
+    .logo-mark svg { width: 34px; height: 34px; fill: #fff; }
+
+    .app-name {
+      font-family: 'Amiri', serif;
+      font-size: clamp(28px, 5vw, 38px);
+      font-weight: 700;
+      color: var(--green);
+      letter-spacing: .5px;
+    }
+
+    .page-title {
+      font-size: 13px;
+      font-weight: 500;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-top: 6px;
+    }
+
+    .divider {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin: 24px auto 0;
+      max-width: 200px;
+    }
+    .divider span { flex: 1; height: 1px; background: var(--border); }
+    .divider em {
+      font-style: normal;
+      color: var(--gold);
+      font-size: 18px;
+    }
+
+    /* ── Effective date badge ── */
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      background: var(--green);
+      color: #fff;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: .5px;
+      padding: 6px 14px;
+      border-radius: 100px;
+      margin-top: 28px;
+    }
+    .badge svg { width: 13px; height: 13px; fill: rgba(255,255,255,.8); }
+
+    /* ── Sections ── */
+    section {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 32px 36px;
+      margin-bottom: 20px;
+      box-shadow: 0 2px 12px rgba(0,0,0,.04);
+      animation: fadeUp .5s ease both;
+    }
+
+    section:nth-child(1) { animation-delay: .05s; }
+    section:nth-child(2) { animation-delay: .10s; }
+    section:nth-child(3) { animation-delay: .15s; }
+    section:nth-child(4) { animation-delay: .20s; }
+    section:nth-child(5) { animation-delay: .25s; }
+    section:nth-child(6) { animation-delay: .30s; }
+    section:nth-child(7) { animation-delay: .35s; }
+    section:nth-child(8) { animation-delay: .40s; }
+
+    @keyframes fadeUp {
+      from { opacity:0; transform: translateY(16px); }
+      to   { opacity:1; transform: translateY(0); }
+    }
+
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 18px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .icon-wrap {
+      width: 38px; height: 38px;
+      border-radius: 10px;
+      background: rgba(26,107,74,.08);
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .icon-wrap svg { width: 18px; height: 18px; fill: var(--green); }
+
+    h2 {
+      font-family: 'Amiri', serif;
+      font-size: 19px;
+      font-weight: 700;
+      color: var(--ink);
+      line-height: 1.3;
+    }
+
+    p {
+      font-size: 14.5px;
+      color: #374151;
+      margin-bottom: 12px;
+    }
+    p:last-child { margin-bottom: 0; }
+
+    ul {
+      list-style: none;
+      margin: 10px 0 0;
+    }
+    ul li {
+      font-size: 14.5px;
+      color: #374151;
+      padding: 8px 0 8px 26px;
+      position: relative;
+      border-bottom: 1px solid var(--border);
+    }
+    ul li:last-child { border-bottom: none; }
+    ul li::before {
+      content: '';
+      position: absolute;
+      left: 0; top: 16px;
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      background: var(--gold);
+    }
+
+    a {
+      color: var(--green-light);
+      text-decoration: none;
+      font-weight: 600;
+      border-bottom: 1.5px solid rgba(45,150,104,.25);
+      transition: border-color .2s;
+    }
+    a:hover { border-color: var(--green-light); }
+
+    /* ── Contact card ── */
+    .contact-card {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      background: rgba(26,107,74,.05);
+      border: 1px solid rgba(26,107,74,.15);
+      border-radius: 12px;
+      padding: 16px 20px;
+      margin-top: 16px;
+    }
+    .contact-card svg { width: 22px; height: 22px; fill: var(--green); flex-shrink: 0; }
+    .contact-card span { font-size: 14px; }
+    .contact-card strong { display: block; font-size: 13px; color: var(--muted); font-weight: 500; }
+
+    /* ── Footer ── */
+    footer {
+      text-align: center;
+      margin-top: 40px;
+      font-size: 12px;
+      color: var(--muted);
+      line-height: 1.8;
+    }
+
+    @media (max-width: 520px) {
+      section { padding: 24px 20px; }
+      .wrap { padding: 40px 16px 60px; }
+    }
+  </style>
+</head>
+<body>
+<div class="wrap">
+
+  <!-- Header -->
+  <header>
+    <div class="logo-mark">
+      <!-- Mosque icon -->
+      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <path d="M12 2C10.9 2 10 2.9 10 4s.9 2 2 2 2-.9 2-2-.9-2-2-2zm6.5 6H18c-.28-1.7-1.32-3.15-2.78-4H8.78C7.32 4.85 6.28 6.3 6 8H5.5C4.67 8 4 8.67 4 9.5S4.67 11 5.5 11H6v9h2v-4h8v4h2v-9h.5c.83 0 1.5-.67 1.5-1.5S19.33 8 18.5 8z"/>
+      </svg>
+    </div>
+    <div class="app-name">VaktiEzan</div>
+    <div class="page-title">Gizlilik Politikası</div>
+    <div class="divider"><span></span><em>☽</em><span></span></div>
+    <div class="badge">
+      <svg viewBox="0 0 24 24"><path d="M9 11l3 3L22 4M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg>
+      Yürürlük tarihi: 24 Mart 2026
+    </div>
+  </header>
+
+  <!-- Sections -->
+  <section>
+    <div class="section-header">
+      <div class="icon-wrap">
+        <svg viewBox="0 0 24 24"><path d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+      </div>
+      <h2>Genel Bilgi</h2>
+    </div>
+    <p>Bu gizlilik politikası, <strong>aykutsen1987</strong> ("Hizmet Sağlayıcı") tarafından geliştirilen <strong>VaktiEzan</strong> mobil uygulaması için geçerlidir. Uygulama, reklam destekli ve "olduğu gibi" sunulan bir hizmet olarak tasarlanmıştır.</p>
+  </section>
+
+  <section>
+    <div class="section-header">
+      <div class="icon-wrap">
+        <svg viewBox="0 0 24 24"><path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/></svg>
+      </div>
+      <h2>Toplanan Bilgiler</h2>
+    </div>
+    <p>Uygulama indirilip kullanıldığında aşağıdaki bilgiler otomatik olarak toplanabilir:</p>
+    <ul>
+      <li>Cihazınızın IP adresi</li>
+      <li>Ziyaret edilen uygulama ekranları ile tarih ve saat bilgisi</li>
+      <li>Uygulama üzerinde geçirilen süre</li>
+      <li>Kullandığınız mobil işletim sistemi</li>
+    </ul>
+    <p style="margin-top:14px;">Bu uygulama <strong>kesin konum bilgisi toplamaz</strong> ve verilerinizi işlemek için <strong>yapay zeka teknolojisi kullanmaz</strong>.</p>
+  </section>
+
+  <section>
+    <div class="section-header">
+      <div class="icon-wrap">
+        <svg viewBox="0 0 24 24"><path d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+      </div>
+      <h2>Üçüncü Taraf Erişimi</h2>
+    </div>
+    <p>Yalnızca anonimleştirilmiş ve toplu veriler, uygulamayı iyileştirme amacıyla harici hizmetlerle periyodik olarak paylaşılır. Uygulama, aşağıdaki üçüncü taraf hizmeti kullanmaktadır:</p>
+    <ul>
+      <li><a href="https://support.google.com/admob/answer/6128543?hl=en" target="_blank" rel="noopener">Google AdMob – Reklam Gizlilik Politikası</a></li>
+    </ul>
+    <p style="margin-top:14px;">Bilgileriniz yasal zorunluluk, güvenlik ihlali tespiti veya güvenilir hizmet ortakları ile paylaşılan koşullara bağlı olarak açıklanabilir.</p>
+  </section>
+
+  <section>
+    <div class="section-header">
+      <div class="icon-wrap">
+        <svg viewBox="0 0 24 24"><path d="M18.364 18.364A9 9 0 005.636 5.636m12.728 12.728A9 9 0 015.636 5.636m12.728 12.728L5.636 5.636"/></svg>
+      </div>
+      <h2>Vazgeçme Hakları</h2>
+    </div>
+    <p>Uygulamayı mobil cihazınızdan kaldırarak bilgi toplanmasını her zaman durdurabilirsiniz. Cihazınızdaki veya uygulama mağazasındaki standart kaldırma yöntemlerini kullanabilirsiniz.</p>
+  </section>
+
+  <section>
+    <div class="section-header">
+      <div class="icon-wrap">
+        <svg viewBox="0 0 24 24"><path d="M5 8h14M5 8a2 2 0 110-4h14a2 2 0 110 4M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8m-9 4h4"/></svg>
+      </div>
+      <h2>Veri Saklama Politikası</h2>
+    </div>
+    <p>Hizmet Sağlayıcı, kullanıcı tarafından sağlanan verileri uygulamanın kullanıldığı süre boyunca ve sonrasında makul bir süre saklar. Verilerinizin silinmesini talep etmek için aşağıdaki e-posta adresi üzerinden iletişime geçebilirsiniz.</p>
+  </section>
+
+  <section>
+    <div class="section-header">
+      <div class="icon-wrap">
+        <svg viewBox="0 0 24 24"><path d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+      </div>
+      <h2>Çocukların Gizliliği</h2>
+    </div>
+    <p>Bu uygulama 13 yaşın altındaki kişilere yönelik değildir. Hizmet Sağlayıcı, 13 yaş altı çocuklardan bilerek kişisel veri toplamaz. Böyle bir durumun farkına varılması halinde, söz konusu veriler derhal silinir.</p>
+    <p>Ebeveyn veya vasi olarak endişeniz varsa lütfen bizimle iletişime geçin.</p>
+  </section>
+
+  <section>
+    <div class="section-header">
+      <div class="icon-wrap">
+        <svg viewBox="0 0 24 24"><path d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/></svg>
+      </div>
+      <h2>Güvenlik</h2>
+    </div>
+    <p>Hizmet Sağlayıcı, işlenen ve saklanan bilgilerin gizliliğini korumak için fiziksel, elektronik ve prosedürel güvenlik önlemleri uygulamaktadır.</p>
+  </section>
+
+  <section>
+    <div class="section-header">
+      <div class="icon-wrap">
+        <svg viewBox="0 0 24 24"><path d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/></svg>
+      </div>
+      <h2>Değişiklikler</h2>
+    </div>
+    <p>Bu Gizlilik Politikası zaman zaman güncellenebilir. Değişiklikler bu sayfa üzerinden duyurulacaktır. Uygulamayı kullanmaya devam etmeniz, yapılan değişikliklerin kabul edildiği anlamına gelir.</p>
+  </section>
+
+  <section>
+    <div class="section-header">
+      <div class="icon-wrap">
+        <svg viewBox="0 0 24 24"><path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+      </div>
+      <h2>Bize Ulaşın</h2>
+    </div>
+    <p>Gizlilik ile ilgili herhangi bir sorunuz veya talebiniz için lütfen bizimle iletişime geçin:</p>
+    <div class="contact-card">
+      <svg viewBox="0 0 24 24"><path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+      <div>
+        <strong>E-posta</strong>
+        <span><a href="mailto:aykutsen1987@gmail.com">aykutsen1987@gmail.com</a></span>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2026 VaktiEzan · aykutsen1987</p>
+    <p style="margin-top:6px;">Bu politika 24 Mart 2026 tarihinden itibaren geçerlidir.</p>
+  </footer>
+
+</div>
+</body>
+</html>
